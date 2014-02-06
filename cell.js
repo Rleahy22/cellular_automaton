@@ -31,9 +31,9 @@ function Cell(state) {
 
   this.displayCell = function() {
     if (this.state) {
-      console.log('+');
+      return '+';
     } else {
-      console.log('-');
+      return '-';
     }
   }
 };
