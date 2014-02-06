@@ -12,7 +12,7 @@ var newIteration = new Iteration(cells, 1);
 
 describe("Iteration", function() {
   it("contains an array of cell objects", function() {
-    expect(newIteration.cells[0].state).toBeDefined();
+    expect(newIteration.cells[0].constructor.name).toBe("Cell");
   });
 
   it("has an evolutionNumber that tells which iteration it is", function() {
