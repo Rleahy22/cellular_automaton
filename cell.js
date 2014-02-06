@@ -28,6 +28,14 @@ function Cell(state) {
       }
     }
   }
+
+  this.displayCell = function() {
+    if (this.state) {
+      console.log('+');
+    } else {
+      console.log('-');
+    }
+  }
 };
 
 module.exports = Cell

@@ -80,4 +80,24 @@ describe("Cell", function() {
       });
     });
   });
+
+  describe("displayCell", function() {
+    describe("when the cell state is 0", function() {
+      it("should log '-' to the console", function() {
+        spyOn(console, 'log');
+        newCell.updateState(0);
+        newCell.displayCell();
+        expect(console.log).toHaveBeenCalledWith('-');
+      });
+    });
+
+    describe("when the cell state is 1", function() {
+      it("should log '+' to the console", function() {
+        spyOn(console, 'log');
+        newCell.updateState(1);
+        newCell.displayCell();
+        expect(console.log).toHaveBeenCalledWith('+');
+      });
+    });
+  });
 });
