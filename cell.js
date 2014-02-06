@@ -6,6 +6,9 @@ function Cell(state) {
   }
 
   this.nextIterationState = function(leftCell, rightCell) {
+    if (typeof leftCell === 'undefined' || typeof rightCell === 'undefined') {
+      return this.state;
+    }
     if (this.state) {
       if (leftCell.state) {
         return 0;

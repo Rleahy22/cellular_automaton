@@ -79,6 +79,15 @@ describe("Cell", function() {
         expect(middleCell.nextIterationState(leftCell, rightCell)).toBe(0);
       });
     });
+
+    describe("When cell does not have neighbors on both sides", function() {
+      it("should return its current state", function() {
+        newCell.updateState(1)
+        expect(newCell.nextIterationState(newCell, undefined)).toBe(newCell.state);
+        newCell.updateState(0);
+        expect(newCell.nextIterationState(undefined, newCell)).toBe(newCell.state);
+      });
+    });
   });
 
   describe("displayCell", function() {
