@@ -18,14 +18,16 @@ function Grid() {
   this.numberIterations = 1;
 
   this.evolve = function() {
-    var cells = [];
+    var newCells = [];
     var lastIteration = this.iterations[this.iterations.length - 1];
-    for (var i = 0; i < lastIteration.length; i++) {
-      var newState = lastIteration[i].nextIterationState();
-      var cell = new Cell(newState)
-      cells.push(cell);
+    for (var i = 0; i < lastIteration.cells.length; i++) {
+      var leftCell = lastIteration.cells[i - 1];
+      var rightCell = lastIteration.cells[i + 1];
+      var newState = lastIteration.cells[i].nextIterationState(leftCell, rightCell);
+      var cell = new Cell(newState);
+      newCells.push(cell);
     }
-    this.iterations.push(new Iteration(cells, this.numberIterations + 1));
+    this.iterations.push(new Iteration(newCells, this.numberIterations + 1));
     this.numberIterations++
   }
 }
