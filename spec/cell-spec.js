@@ -32,7 +32,7 @@ describe("Cell", function() {
     });
 
     describe("When cell state is 0, left is 0, and right is 1", function() {
-      it("should return 0", function() {
+      it("should return 1", function() {
         createCellNeighbors(0, 0, 1);
         expect(middleCell.nextIterationState(leftCell, rightCell)).toBe(1);
       });
@@ -46,21 +46,21 @@ describe("Cell", function() {
     });
 
     describe("When cell state is 0, left is 1, and right is 0", function() {
-      it("should return 0", function() {
+      it("should return 1", function() {
         createCellNeighbors(1, 0, 0);
         expect(middleCell.nextIterationState(leftCell, rightCell)).toBe(1);
       });
     });
 
     describe("When cell state is 1, left is 0, and right is 0", function() {
-      it("should return 0", function() {
+      it("should return 1", function() {
         createCellNeighbors(0, 1, 0);
         expect(middleCell.nextIterationState(leftCell, rightCell)).toBe(1);
       });
     });
 
     describe("When cell state is 1, left is 0, and right is 1", function() {
-      it("should return 0", function() {
+      it("should return 1", function() {
         createCellNeighbors(0, 1, 1);
         expect(middleCell.nextIterationState(leftCell, rightCell)).toBe(1);
       });
