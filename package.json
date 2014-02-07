@@ -1,6 +1,10 @@
 {
   "name": "CellularAutomaton",
   "description": "An application that computes and shows successive iterations of rule 30 cellular automaton",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Rleahy22/cellular_automaton"
+  },
   "devDependencies": {
     "jasmine-node": "1.3.x"
   },
