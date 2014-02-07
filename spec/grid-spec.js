@@ -37,5 +37,11 @@ describe("Grid", function() {
       expect(newGrid.iterations[1].constructor.name).toBe("Iteration");
       expect(newGrid.iterations[1]).not.toEqual(newGrid.iterations[0]);
     });
+
+    it("should log the new iteration to the console", function() {
+      spyOn(console, "log");
+      newGrid.evolve();
+      expect(console.log).toHaveBeenCalledWith("------------++-++++------------")
+    });
   });
 });
