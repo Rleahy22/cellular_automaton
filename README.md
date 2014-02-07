@@ -15,6 +15,10 @@ run specs
 
 After installing dependencies,
 
+<code>./node_modules/jasmine-node/bin/jasmine-node spec</code>
+
+or if jasmine-node is already installed globally:
+
 <code>jasmine-node spec</code>
 
 run program
