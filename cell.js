@@ -1,8 +1,16 @@
 function Cell(state) {
-  this.state = state;
+  if (state === 0 || state === 1) {
+    this.state = state;
+  } else {
+    throw new Error("Cell must either have a state of 1 or 0");
+  }
 
   this.updateState = function(newState) {
-    this.state = newState;
+    if (newState === 0 || newState === 1) {
+      this.state = newState;
+    } else {
+      throw new Error("Cell must either have a state of 1 or 0")
+    }
   }
 
   this.nextIterationState = function(leftCell, rightCell) {

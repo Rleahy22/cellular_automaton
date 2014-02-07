@@ -1,4 +1,5 @@
 var Cell = require('../cell');
+
 var newCell = new Cell(0);
 
 var leftCell = {};
@@ -14,6 +15,9 @@ function createCellNeighbors(left, middle, right) {
 describe("Cell", function() {
   it("has an initial state of 1 or 0", function() {
     expect(newCell.state).toBe(0);
+    expect(function() {
+      new Cell(3);
+    }).toThrow(new Error("Cell must either have a state of 1 or 0"));
   });
 
   describe("updateState()", function() {
@@ -21,6 +25,14 @@ describe("Cell", function() {
       newCell.updateState(1);
       expect(newCell.state).toBe(1);
     });
+
+    describe("when argument is not 0 or 1", function() {
+      it("Should throw an error", function() { 
+        expect(function() {
+          newCell.updateState(3);
+        }).toThrow(new Error("Cell must either have a state of 1 or 0"));
+      });
+    })
   });
 
   describe("nextIterationState()", function() {
