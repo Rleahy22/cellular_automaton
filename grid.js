@@ -14,12 +14,14 @@ function Grid() {
 
   var initialIteration = new Iteration(cells, 1);
 
+  var that = this;
+
   this.iterations = [initialIteration];
   this.numberIterations = 1;
 
   this.evolve = function() {
     var newCells = [];
-    var lastIteration = this.iterations[this.iterations.length - 1];
+    var lastIteration = that.iterations[that.iterations.length - 1];
     for (var i = 0; i < lastIteration.cells.length; i++) {
       var leftCell = lastIteration.cells[i - 1];
       var rightCell = lastIteration.cells[i + 1];
@@ -27,9 +29,24 @@ function Grid() {
       var cell = new Cell(newState);
       newCells.push(cell);
     }
-    this.iterations.push(new Iteration(newCells, this.numberIterations + 1));
-    this.numberIterations++
+    that.iterations.push(new Iteration(newCells, that.numberIterations + 1));
+    that.numberIterations++
+    that.displayLastIteration();
   }
+
+  this.displayLastIteration = function() {
+    this.iterations[this.iterations.length - 1].displayIteration();
+  }
+
+  this.startEvolving = function() {
+    this.evolveInterval = setInterval(this.evolve, 1500);
+  }
+
+  this.stopEvolving = function() {
+    clearInterval(this.evolveInterval);
+  }
+
+  this.displayLastIteration();
 }
 
 module.exports = Grid;
