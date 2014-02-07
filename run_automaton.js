@@ -7,12 +7,13 @@ var rl = readline.createInterface({
 })
 
 rl.on('line', function(cmd) {
-  if (cmd === "stop") {
+  if (cmd.toUpperCase() === "STOP") {
     newGrid.stopEvolving();
-  } else if (cmd === "start") {
+  } else if (cmd.toUpperCase() === "START") {
     newGrid.startEvolving();
   }
 });
 
+console.log("\nEnter 'start' to begin the evolution process and enter 'stop' to stop the evolution process.\n");
+
 var newGrid = new Grid();
-newGrid.startEvolving();
